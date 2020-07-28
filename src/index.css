@@ -1,13 +1,259 @@
-body {
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  background: #f4f4f4;
+  color: #363636;
+  font-family: "Roboto", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Hotels */
+.home {
+  max-width: 1300px;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
 }
+/* FIN Hotels */
+/* Header */
+.header {
+  background: #124280;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.header button {
+  border: none;
+  text-decoration: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+/* FIN header */
+
+/* Filter */
+
+.filter {
+  width: 30%;
+  height: 600px;
+  margin-left: 2rem;
+}
+.filter-container {
+  border: 1px solid #e7e7e7;
+  box-shadow: 3px 3px 16px -14px rgba(0, 0, 0, 0.75);
+}
+
+.filter-title {
+  background: #ffffff;
+  padding: 1rem;
+  margin-bottom: 5px;
+}
+
+.filter-search {
+  background: #ffffff;
+  padding: 1rem;
+  margin-bottom: 5px;
+}
+.filter-search p {
+  text-align: center;
+  background-color: #df0b0b;
+  color: #ffffff;
+  padding: 0.5rem;
+  margin-bottom: 5px;
+}
+
+.filter-name {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.filter-name img,
+.filter-star img,
+.raitingStars {
+  width: 20px;
+}
+.filter-name h2,
+.filter-star h2 {
+  color: #157ab1;
+  margin-left: 10px;
+}
+
+.filter-search input {
+  width: 50%;
+  padding: 0.5rem;
+  font-size: 17px;
+  border: 1px solid #9c9c9c;
+  border-top: 2px solid #9c9c9c;
+  border-radius: 3px;
+  margin-right: 20px;
+}
+
+.filter-search button,
+.hotel-precio button {
+  width: 30%;
+  height: 40px;
+  background: #002c77;
+  color: #ffffff;
+  border: none;
+  border-bottom: 3px solid #00102b;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.filter-star {
+  background: #ffffff;
+  padding: 1rem;
+}
+
+.filter-star-title {
+  display: flex;
+}
+.stars {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.stars input {
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+/* Fin filter */
+
+/* Hotel */
+.hotel {
+  width: 95%;
+  height: 225px;
+  background: #ffffff;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #e7e7e7;
+  border-radius: 5px;
+  box-shadow: 3px 3px 16px -14px rgba(0, 0, 0, 0.75);
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+.hotel-container {
+  display: flex;
+}
+.hotel-informacion {
+  width: 50%;
+  margin-left: 1rem;
+  color: #157ab1;
+}
+.imgIcon {
+  width: 25px;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+.imgHotel {
+  height: 100%;
+  width: 337px;
+  object-fit: cover;
+}
+
+.hotel-precio {
+  width: 25%;
+  border-left: 1px dashed #c0c0c0;
+  padding: 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.hotel-precio p {
+  font-size: 20px;
+}
+.hotel-precio h1 {
+  color: #df6800;
+}
+.hotel-precio button {
+  width: 80%;
+}
+
+@media (max-width: 480px) {
+  /* Header */
+  .header {
+    width: 375px;
+    background: #124280;
+    padding: 0.5;
+  }
+
+  /* Hotels */
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+  /* FIN header */
+  
+/* Filter */
+
+.filter {
+  width: 85%;
+  height: auto;
+  margin: 0 0 10px 0;
+}
+
+.filter-search input {
+  width: 95%;
+  margin-bottom: 10px;
+}
+
+.filter-search button,
+.hotel-precio button {
+  width: 50%;
+  height: 50px;
+}
+
+/* Hotel */
+.hotel {
+  width: 95%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 10px 0 0 0;
+  margin-bottom: 10px;
+}
+.hotel-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.hotel-informacion {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: auto;
+}
+
+.imgHotel {
+  width: 90%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.hotel-precio {
+  width: 90%;
+  border: none;
+  border-top: 1px dashed #c0c0c0;
+  margin: 0 auto;
+}
+
+.hotel-precio button {
+  width: 80%;
+}
+
+/* Fin filter */
+}
+
+/* FIN hotel */
