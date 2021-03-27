@@ -6,19 +6,22 @@ import Hotel from "./Hotel";
 const Home = ({dataHotels,urlImgs,setUrlImgs,setDataHotels,setCopiaDataHotels,copiaDataHotels}) => {
 
     useEffect(() => {
-      getHotels()
-    },[setDataHotels])
 
-    const getHotels = async() => {
-      try {
-        const hotel = await axios.get("http://localhost:8000/listHotels")
-        setCopiaDataHotels(hotel.data.Hotels)
-        setDataHotels(hotel.data.Hotels)
-        setUrlImgs(hotel.data.urlImg)
-      } catch (err) {
-        console.log(err)
+      const getHotels = async() => {
+        try {
+          const hotel = await axios.get("http://localhost:8000/listHotels")
+          setCopiaDataHotels(hotel.data.Hotels)
+          setDataHotels(hotel.data.Hotels)
+          setUrlImgs(hotel.data.urlImg)
+        } catch (err) {
+          console.log(err)
+        }
       }
-    }
+
+      getHotels()
+    },[setDataHotels,setCopiaDataHotels,setUrlImgs])
+
+   
 
   return (
     <div className="home">

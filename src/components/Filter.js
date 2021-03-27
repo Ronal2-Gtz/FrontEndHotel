@@ -4,9 +4,9 @@ import star from "../img/filters/star.svg";
 import Stars from "./Stars";
 import Axios from "axios";
 
-const Filter = ({ setDataHotels, copiaDataHotels,dataHotels }) => {
+const Filter = ({ setDataHotels, copiaDataHotels, dataHotels }) => {
   const [searchFilter, setSearchFilter] = useState("");
-  
+
   const [error, setError] = useState(false);
   const [raitingStars, setRaitingStars] = useState({
     starAll_0: false,
@@ -18,19 +18,26 @@ const Filter = ({ setDataHotels, copiaDataHotels,dataHotels }) => {
   });
 
   const { starAll_0, star_5, star_4, star_3, star_2, star_1 } = raitingStars;
-  
-  const filterStars = (checked,number) => {
-    console.log(number)
-    if(number === 0){
-      
-      return setDataHotels(copiaDataHotels)
-    } 
-    if(checked === true){
-        const resp = copiaDataHotels.filter(hotels => hotels.stars === number)
-        return setDataHotels(resp)
-      }
 
-}
+  const joinArray  = (array1, array2) => {
+     const array3 = array1.concat(array2);
+     return array3
+  }
+
+  const filterStars = (checked, number) => {
+    if (number === 0) {
+      return setDataHotels(copiaDataHotels);
+    }
+      const resp = copiaDataHotels.filter((hotels) => hotels.stars === number);
+      setDataHotels(resp);
+
+      console.log(joinArray(dataHotels,resp))
+
+
+
+  };
+
+  
 
   const getNameFilter = (e) => {
     setSearchFilter(e.target.value);
@@ -42,10 +49,9 @@ const Filter = ({ setDataHotels, copiaDataHotels,dataHotels }) => {
       [e.target.name]: e.target.checked,
     });
 
-    const removeNumber = (e.target.name.split("_"))
-    const numberStar = Number((removeNumber[removeNumber.length - 1]))
-    filterStars(e.target.checked,numberStar)
-
+    const removeNumber = e.target.name.split("_");
+    const numberStar = Number(removeNumber[removeNumber.length - 1]);
+    filterStars(e.target.checked, numberStar);
   };
 
   const newResultFilter = async (e) => {
@@ -61,7 +67,6 @@ const Filter = ({ setDataHotels, copiaDataHotels,dataHotels }) => {
     setDataHotels(newList.data.hotels);
   };
 
- 
   return (
     <div className="filter">
       <div className="filter-container">
